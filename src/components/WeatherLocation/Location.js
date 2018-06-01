@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Location = ({ city }) => {
   return(
-    <div>
+    <div className='LocationCont'>
       <h1>{city}</h1>
     </div>
   )
