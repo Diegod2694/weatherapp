@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import Location from './Location'
 import WeatherData from './WeatherData'
-import {
-  // CLOUD,
-  // CLOUDY,
-  SUN,
-  // RAIN,
-  // SNOW,
-  WINDY
-} from './../../constants/weathers'
+// import transformWeather from './../../services/transformWeather'
+import { SUN } from './../../constants/weathers'
+
 import './styles.css'
+
+// const location  = 'Buenos Aires,ar'
+// const api_key = 'b229552c29857c4b843acf9d34e2634f'
+// const api_weather = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}`
 
 const data1 = {
   temperature: 20,
@@ -19,25 +18,47 @@ const data1 = {
 }
 
 const data2 = {
-  temperature: 18,
-  weatherState: WINDY,
-  humidity: 5,
-  wind: '19 m/s'
+  temperature: 20,
+  weatherState: SUN,
+  humidity: 10,
+  wind: '10 m/s'
 }
-
 class WeatherLocation extends Component {
-  state={
-    city: 'Buenos Aires',
-    data: data1
+  constructor (props) {
+    super(props)
+    this.state={ 
+      city: 'Buenos Aires',
+      data: data1
+    }
+    console.log('constructor');
+  }
+  
+  componentWillMount () {
+    console.log('componentWillMount');
+  }
+  
+  componentDidMount () {
+    console.log('componentDidMount');
+  }
+  
+  componentWillUpdate () {
+    console.log('componentWillUpdate');
   }
 
+  componentDidUpdate () {
+    console.log('componentDidUpdate');
+  }
+   
   handleUpdateClick = () => {
+    console.log('actualizado');
     this.setState({
-      data: data2
+      date: data2
     })
   }
 
-  render() {
+  render = () => {
+    console.log('render');
+    
     const { city, data } = this.state
     return (
       <div className='weatherLocationCont'>
