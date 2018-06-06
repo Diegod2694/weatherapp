@@ -1,11 +1,11 @@
 import convert from 'convert-units'
 import {
-  // CLOUD,
-  // CLOUDY,
+  CLOUDY,
   SUN,
-  // RAIN,
-  // SNOW,
-  // WINDY
+  RAIN,
+  SNOW,
+  THUNDER,
+  DRIZZLE
 } from './../constants/weathers'
 
 const getTemp = kelvin => {
@@ -13,13 +13,27 @@ const getTemp = kelvin => {
 }
 
 const getWeatherState = weather => {
-  return SUN
+  const { id } = weather[0]
+  if ( id < 300 ) {
+    return THUNDER
+  } else if ( id < 400 ) {
+    return DRIZZLE
+  } else if ( id < 600 ) {
+    return RAIN
+  } else if ( id < 700 ) {
+    return SNOW
+  } else if ( id === 800 ) {
+    return SUN
+  } else {
+    return CLOUDY
+  }
 }
 
 const transformWeather = weather_data => {
+  const { weather } = weather_data
   const { humidity, temp } = weather_data.main
   const { speed } = weather_data.wind
-  const weatherState = getWeatherState(this.weather)
+  const weatherState = getWeatherState(weather)
   const temperature = getTemp(temp)
 
   const data = {
