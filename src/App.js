@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Grid, Row, Col } from 'react-flexbox-grid'
 import LocationList from './components/LocationList'
 import './App.css'
 
@@ -19,10 +20,20 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div className="App">
-          <LocationList cities={cities}
-            onSelectedLocation={this.handleSelectedLocation}></LocationList>
-        </div>
+        <Grid>
+          <Row>
+            Titulo
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>
+              <LocationList cities={cities}
+                onSelectedLocation={this.handleSelectedLocation}></LocationList>
+            </Col>
+            <Col xs={12} md={6}>
+              <div className="detail"></div>
+            </Col>
+          </Row>
+        </Grid>
       </MuiThemeProvider>
     )
   }
