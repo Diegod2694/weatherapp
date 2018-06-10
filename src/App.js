@@ -14,6 +14,13 @@ const cities = [
   'Madrid,es',
 ]
 
+const data = {
+  temperature: 10,
+  humidity: 10,
+  weatherState: 'normal',
+  wind: 'normal'
+}
+
 class App extends Component {
   state = {
     city: null
@@ -44,7 +51,7 @@ class App extends Component {
                 <div className="detail">
                   {
                     city &&
-                      <ForecastExtended city={city}/>
+                      <ForecastExtended city={city} data={data}/>
                   }
                 </div>
               </Paper>
