@@ -25,7 +25,7 @@ export const setSelectedCity = payload => {
           console.log('forecastData', forecastData)
 
           // modificar el estado con el resultado de la promise (fetch)
-          dispatch(setForecastData({city: payload, setForecastData}))
+          dispatch(setForecastData({city: payload, forecastData}))
       }
     )
   }
